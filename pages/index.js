@@ -6,6 +6,7 @@ import Image from "next/image";
 import { NextSeo } from "next-seo";
 import classNames from "classnames";
 import moment from "moment/moment";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 export default function Home() {
 	const [time, setTime] = useState({});
@@ -67,6 +68,7 @@ export default function Home() {
 		<div
 			class='flex flex-col min-h-screen  bg-black  justify-center items-center gap-7  w-full'
 			dir='rtl'>
+				<GoogleAnalytics gtagUrl="https://www.googletagmanager.com/gtag/js?id=G-CFGTTDSWL6"/>
 			<NextSeo
 				title='الكهرباء هتقطع أمتي'
 				description='أمتي الكهربا هتقطع؟ سهلنالك الموضوع وبقي مجرد موقع تفتحه هيقولك فاضل اد ايه علي الكهربا وتقطع وهتقطع ولا لا'
@@ -84,8 +86,8 @@ export default function Home() {
 						noSsr={true}
 					/>
 					{!time.isSafe ? (
-						<div className='text-3xl sm:text-6xl text-white font-bold font-arabic text-center mx-auto max-w-2xl flex flex-col  '>
-							<div className='text-center text-transparent animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text my-4'>
+						<div className='flex flex-col max-w-2xl mx-auto text-3xl font-bold text-center text-white sm:text-6xl font-arabic '>
+							<div className='my-4 text-center text-transparent animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text'>
 								خلي بالك، ده وقت قطع الكهرباء. متركبش الأسانسير ولو بتعمل شغل
 								متنساش تعمله سيف
 							</div>
@@ -98,7 +100,7 @@ export default function Home() {
 							</h5>
 						</div>
 					) : (
-						<div className='text-3xl sm:text-6xl text-white font-bold font-arabic text-center mx-auto max-w-2xl flex flex-col gap-6 '>
+						<div className='flex flex-col max-w-2xl gap-6 mx-auto text-3xl font-bold text-center text-white sm:text-6xl font-arabic '>
 							<h1 className='text-center text-transparent animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text'>
 								دلوقتي وقت الأمان، لو الكهربا مش قاطعه عندك يبقي مش هتقطع لحد
 								{time.dangerTime.start}
@@ -113,7 +115,7 @@ export default function Home() {
 				</div>
 				<img
 					src='/logo.png'
-					className='w-12 sm:w-12 absolute bottom-5 left-1/2 transform -translate-x-1/2 cursor-pointer'
+					className='absolute w-12 transform -translate-x-1/2 cursor-pointer sm:w-12 bottom-5 left-1/2'
 					alt='Gitnasr.com'
 					onClick={() => window.open("https://github.com/gitnasr", "_blank")}
 				/>
